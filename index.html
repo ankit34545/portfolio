@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankit Kumar | Portfolio</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    :root {
+      --bg-dark: #020617;
+      --bg-card: rgba(15, 23, 42, 0.96);
+      --border-soft: rgba(148, 163, 184, 0.5);
+      --accent-1: #8b5cf6;
+      --accent-2: #ec4899;
+      --accent-3: #22d3ee;
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --shadow-strong: 0 28px 80px rgba(15, 23, 42, 0.98);
+    }
+
+    body {
+      min-height: 100vh;
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.18), transparent 55%),
+        radial-gradient(circle at top right, rgba(168, 85, 247, 0.22), transparent 60%),
+        radial-gradient(circle at bottom, rgba(248, 113, 113, 0.24), transparent 55%),
+        var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: -40%;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(56, 189, 248, 0.08), transparent 55%),
+        radial-gradient(circle at 80% 0%, rgba(168, 85, 247, 0.12), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+      z-index: -1;
+      animation: floatGlow 16s ease-in-out infinite alternate;
+    }
+
+    @keyframes floatGlow {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      100% { transform: translate3d(0, -40px, 0) scale(1.05); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* NAVBAR */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.96), rgba(2, 6, 23, 0.86));
+      border-bottom: 1px solid rgba(148, 163, 184, 0.35);
+      box-shadow: 0 18px 45px rgba(15, 23, 42, 0.85);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    /* LOGO */
+    .logo {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.1;
+    }
+
+    .logo-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: linear-gradient(120deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .logo-role {
+      margin-top: 2px;
+      font-size: 0.65rem;
+      letter-spacing: 0.20em;
+      text-transform: uppercase;
+      color: #9ca3af;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 3px;
+      transition: transform 0.15s ease;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      transition: width 0.25s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .menu-btn {
+      display: none;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.8rem;
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--text-main);
+    }
+
+    main {
+      padding-bottom: 4.5rem;
+    }
+
+    section {
+      padding: 4rem 0;
+    }
+
+    .scene-3d {
+      perspective: 1400px;
+      transform-style: preserve-3d;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.7fr);
+      gap: 2.6rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--text-muted);
+      margin-bottom: 0.7rem;
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 3.7vw, 3.2rem);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-title span {
+      background: linear-gradient(90deg, var(--accent-1), var(--accent-2), var(--accent-3));
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: #dbeafe;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-sub span {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      padding: 0.78rem 1.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: rgba(15, 23, 42, 0.92);
+      color: inherit;
+      transition:
+        background 0.18s ease,
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        translate 0.18s ease;
+      transform-style: preserve-3d;
+    }
+
+    .btn-primary {
+      position: relative;
+      background: radial-gradient(circle at top left, rgba(148, 163, 253, 0.4), transparent 55%),
+        linear-gradient(120deg, #4c1d95, #9333ea, #ec4899);
+      border: none;
+      box-shadow: 0 20px 55px rgba(147, 51, 234, 0.55);
+    }
+
+    .btn-primary::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid rgba(248, 250, 252, 0.08);
+      pointer-events: none;
+    }
+
+    .btn-outline {
+      background: rgba(15, 23, 42, 0.88);
+    }
+
+    .btn:hover {
+      transform: translate3d(0, -3px, 6px);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.95);
+      border-color: rgba(129, 140, 248, 0.9);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(120deg, #6d28d9, #a21caf, #f472b6);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+    }
+
+    .hero-meta span strong {
+      display: block;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-top: 0.25rem;
+    }
+
+    /* HERO CARD */
+    .hero-card {
+      position: relative;
+      border-radius: 1.8rem;
+      padding: 2.1rem 2rem;
+      background:
+        radial-gradient(circle at top left, rgba(168, 85, 247, 0.22), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(56, 189, 248, 0.25), transparent 60%),
+        linear-gradient(145deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      box-shadow: var(--shadow-strong);
+      overflow: hidden;
+      transform-origin: center;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .hero-card::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      border: 1px solid transparent;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(236, 72, 153, 0.1), rgba(34, 211, 238, 0.8));
+      -webkit-mask:
+        linear-gradient(#000 0 0) padding-box,
+        linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      pointer-events: none;
+    }
+
+    .hero-card:hover {
+      transform: rotateX(10deg) rotateY(-8deg) translateY(-6px);
+      box-shadow: 0 35px 90px rgba(15, 23, 42, 1);
+      border-color: rgba(129, 140, 248, 0.95);
+    }
+
+    .hero-card:hover::before {
+      opacity: 1;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.7rem;
+      padding: 0.32rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.8);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--text-muted);
+      margin-bottom: 0.9rem;
+      background: rgba(15, 23, 42, 0.96);
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.9);
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.38);
+    }
+
+    .hero-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.1rem;
+    }
+
+    .hero-role {
+      font-size: 0.86rem;
+      color: #a5b4fc;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-note {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .chip {
+      font-size: 0.75rem;
+      padding: 0.32rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(15, 23, 42, 0.96);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-float {
+      position: absolute;
+      right: 1.6rem;
+      top: 1.6rem;
+      font-size: 0.7rem;
+      padding: 0.4rem 0.95rem;
+      border-radius: 999px;
+      border: 1px solid rgba(52, 211, 153, 0.75);
+      background: radial-gradient(circle at top left, rgba(34, 197, 94, 0.4), rgba(22, 163, 74, 0.3));
+      color: #bbf7d0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 18px 40px rgba(22, 163, 74, 0.6);
+      transform: translateZ(35px);
+    }
+
+    .hero-orbit {
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 210px;
+      height: 210px;
+      border-radius: 999px;
+      border: 1px dashed rgba(148, 163, 184, 0.55);
+      opacity: 0.45;
+      transform: translateZ(-40px);
+    }
+
+    .hero-orbit::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      background: #f97316;
+      box-shadow: 0 0 0 8px rgba(249, 115, 22, 0.38);
+      top: 22px;
+      right: 44px;
+    }
+
+    .hero-bottom {
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 0.7rem;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .hero-bottom strong {
+      display: block;
+      color: var(--text-main);
+    }
+
+    /* SECTION HEADINGS */
+    .section-heading {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: #6b7280;
+      margin-bottom: 0.6rem;
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      max-width: 34rem;
+      margin-bottom: 2rem;
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.4fr);
+      gap: 2.2rem;
+      align-items: flex-start;
+    }
+
+    .about-panel {
+      background: linear-gradient(135deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
+      border-radius: 1.4rem;
+      border: 1px solid var(--border-soft);
+      padding: 1.5rem 1.6rem;
+      box-shadow: var(--shadow-strong);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .about-panel:hover {
+      transform: translate3d(0, -4px, 10px);
+      border-color: rgba(129, 140, 248, 0.85);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 1);
+    }
+
+    .about-text {
+      font-size: 0.9rem;
+      color: #d1d5db;
+    }
+
+    .about-text p + p {
+      margin-top: 0.8rem;
+    }
+
+    .info-list {
+      margin-top: 1.3rem;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .info-list span {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+    }
+
+    .skill-card {
+      padding: 0.95rem 1rem;
+      border-radius: 1rem;
+      border: 1px solid var(--border-soft);
+      background:
+        radial-gradient(circle at top left, rgba(129, 140, 248, 0.15), transparent 55%),
+        rgba(15, 23, 42, 0.98);
+      font-size: 0.83rem;
+      box-shadow: var(--shadow-strong);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translate3d(0, -4px, 12px);
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 24px 65px rgba(15, 23, 42, 1);
+    }
+
+    .skill-title {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .skill-tags {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* EXPERIENCE */
+    .experience-section {
+      margin-top: 0.5rem;
+    }
+
+    .experience-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+    }
+
+    .experience-list {
+      list-style: none;
+      padding-left: 0;
+      position: relative;
+      margin-top: 1.2rem;
+    }
+
+    .experience-list::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(#8b5cf6, #ec4899, #22d3ee);
+      opacity: 0.6;
+    }
+
+    .experience-list li {
+      position: relative;
+      padding-left: 2.2rem;
+      margin-bottom: .9rem;
+      color: var(--text-muted);
+      font-size: .88rem;
+    }
+
+    .experience-list li::before {
+      content: "";
+      position: absolute;
+      left: 9px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #020617;
+      border: 2px solid #a5b4fc;
+    }
+
+    /* PROJECTS GRID + CARD */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.7rem;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: 1.3rem;
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      background:
+        radial-gradient(circle at top left, rgba(129, 140, 248, 0.35), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(248, 113, 113, 0.45), transparent 60%),
+        var(--bg-card);
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-strong);
+      transform-style: preserve-3d;
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+      cursor: pointer;
+    }
+
+    .project-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top, rgba(248, 250, 252, 0.12), transparent 55%);
+      mix-blend-mode: soft-light;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      pointer-events: none;
+    }
+
+    .project-card:hover {
+      transform: translate3d(0, -6px, 14px);
+      box-shadow: 0 28px 80px rgba(15, 23, 42, 1);
+      border-color: rgba(129, 140, 248, 0.98);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-thumb {
+      height: 170px;
+      position: relative;
+      overflow: hidden;
+      background: #020617;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .project-card:hover .project-thumb img {
+      transform: scale(1.07);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: flex-end;
+      padding: 0.9rem 1rem;
+      font-size: 0.82rem;
+      background: linear-gradient(to top, rgba(15,23,42,0.87), transparent);
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+
+    .project-card:hover .project-overlay {
+      opacity: 1;
+    }
+
+    .project-body {
+      padding: 1.05rem 1.1rem 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      background: linear-gradient(to bottom, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
+    }
+
+    .project-title {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .project-desc {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .project-tags span {
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,.6);
+      background: rgba(15,23,42,.95);
+    }
+
+    .preview-gallery {
+      display: none;
+    }
+
+    .project-meta {
+      margin-top: 0.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .project-links a {
+      font-size: 0.8rem;
+      padding: 0.45rem 0.9rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      text-decoration: none;
+      background: rgba(15,23,42,0.9);
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .project-links a:hover {
+      border-color: var(--accent-1);
+      box-shadow: 0 0 0 1px rgba(129,140,248,0.7);
+      transform: translateY(-1px);
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
+      gap: 2.3rem;
+    }
+
+    .contact-panel {
+      background: linear-gradient(140deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.9));
+      border-radius: 1.4rem;
+      border: 1px solid var(--border-soft);
+      padding: 1.6rem 1.6rem 1.7rem;
+      box-shadow: var(--shadow-strong);
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+    }
+
+    .contact-panel:hover {
+      transform: translate3d(0, -4px, 10px);
+      border-color: rgba(129, 140, 248, 0.9);
+      box-shadow: 0 26px 70px rgba(15, 23, 42, 1);
+    }
+
+    form {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    label {
+      font-size: 0.8rem;
+      color: #d1d5db;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      margin-top: 0.25rem;
+      padding: 0.7rem 0.85rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.97);
+      color: var(--text-main);
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.16s ease, box-shadow 0.16s ease, transform 0.12s ease;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent-1);
+      box-shadow: 0 0 0 1px rgba(168, 85, 247, 0.7);
+      transform: translate3d(0, -1px, 4px);
+    }
+
+    textarea {
+      min-height: 140px;
+      resize: vertical;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+    }
+
+    .contact-info p + p {
+      margin-top: 0.5rem;
+    }
+
+    .contact-list {
+      margin-top: 1.3rem;
+      display: grid;
+      gap: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .contact-list span {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid rgba(148, 163, 184, 0.35);
+      padding: 1.2rem 0 1.6rem;
+      font-size: 0.78rem;
+      color: #6b7280;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.98));
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 1.1rem;
+      margin-bottom: 0.45rem;
+      font-size: 0.85rem;
+    }
+
+    .socials a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-thickness: 1px;
+    }
+
+    a,
+    .btn,
+    .project-card {
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding-top: 2.4rem;
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .about-grid,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      header { position: sticky; }
+
+      .nav-links {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 56px;
+        background: rgba(2, 6, 23, 0.98);
+        border-bottom: 1px solid rgba(148, 163, 184, 0.3);
+        padding: 0.8rem 1.5rem 1rem;
+        flex-direction: column;
+        gap: 0.8rem;
+        transform: translateY(-150%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.22s ease;
+      }
+
+      .nav-links.show {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      section {
+        padding: 3.1rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <header>
+    <div class="container nav">
+      <div class="logo">
+        <span class="logo-name">ANKIT KUMAR</span>
+        <span class="logo-role">DEVELOPER</span>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="menu-btn" id="menuBtn">Menu</button>
+    </div>
+  </header>
+
+  <main class="container scene-3d">
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div>
+        <p class="eyebrow">Canva · AI Design · Web</p>
+        <h1 class="hero-title">
+          Hi, I'm <span>Ankit Kumar</span>
+        </h1>
+        <p class="hero-sub">
+          3rd-year B.Sc CS · <span>Developer & AI-Driven Canva Designer</span>
+        </p>
+        <p class="hero-desc">
+          I am a third-year B.Sc Computer Science student at Dr. Bhimrao Ambedkar University, skilled in
+          C++, JavaScript, CCC, WordPress and modern web development. I have hands-on experience in digital
+          creativity using Canva and AI-based tools for AI-assisted design, content generation and automation.
+          I enjoy building visually compelling and impactful digital solutions.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">View My Work</a>
+          <!-- LINKEDIN BUTTON UPDATED -->
+          <a href="https://www.linkedin.com/in/ankit-kumar-5a9841230/" target="_blank" class="btn btn-outline">
+            Let’s Connect
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span>EXPERIENCE<strong>Practical Canva & AI projects</strong></span>
+          <span>LOCATION<strong>Sanjay Nagar, Ghaziabad, U.P.</strong></span>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <div class="hero-tag">
+          <span class="status-dot"></span>
+          Open for WFH / Internship
+        </div>
+
+        <div class="hero-float">
+          Focused on <strong>AI-Assisted Design</strong>
+        </div>
+
+        <h3 class="hero-name">Ankit Kumar</h3>
+        <p class="hero-role">B.Sc CS · Canva & AI-Based Content · Basic Web Dev</p>
+        <p class="hero-note">
+          I combine a strong technical base with creativity – using Canva, AI tools and basic web development
+          to design posts, thumbnails, presentations and simple websites for social media and brands.
+        </p>
+
+        <div class="hero-chips">
+          <span class="chip">Canva Templates & Thumbnails</span>
+          <span class="chip">Magic Design · Magic Write</span>
+          <span class="chip">AI-Based Content Creation</span>
+          <span class="chip">HTML · CSS · JavaScript · WordPress</span>
+        </div>
+
+        <div class="hero-bottom">
+          <div>
+            <strong>Detail-Oriented</strong>
+            Focus on clean layouts, branding and consistency.
+          </div>
+          <div>
+            <strong>AI-First Mindset</strong>
+            Uses AI tools to speed up design and content workflows.
+          </div>
+        </div>
+
+        <div class="hero-orbit"></div>
+      </aside>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="reveal">
+      <p class="section-heading">About</p>
+      <h2 class="section-title">Who I am</h2>
+      <p class="section-sub">
+        A blend of developer and designer – studying Computer Science while building practical Canva and
+        AI-driven design projects for social media, branding and web.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-panel">
+          <div class="about-text">
+            <p>
+              I am a third-year B.Sc Computer Science student at Dr. Bhimrao Ambedkar University with a strong interest in
+              technology, design and automation. Along with my technical foundations in C++, JavaScript, CCC and
+              WordPress, I have hands-on practice using Canva and AI-based tools for creative work.
+            </p>
+            <p>
+              I design social media posts, thumbnails, posters, presentations and simple web interfaces using features
+              like Magic Design, Magic Write, AI Background Remover and Text-to-Image. My focus is always on clarity,
+              branding and user-friendly visuals.
+            </p>
+          </div>
+
+          <div class="info-list">
+            <div><span>Education:</span> 3rd-year B.Sc Computer Science, Dr. Bhimrao Ambedkar University</div>
+            <div><span>Availability:</span> Work From Home · Internship · Part-time</div>
+            <div><span>Location:</span> Sanjay Nagar, Ghaziabad, Uttar Pradesh</div>
+            <div><span>Goals:</span> Grow in Canva-based design, AI content creation and modern web development</div>
+          </div>
+        </div>
+
+        <div class="about-panel">
+          <div class="skills-grid">
+            <div class="skill-card">
+              <div class="skill-title">Canva Skills</div>
+              <div class="skill-tags">
+                Templates, posts, presentations, posters, thumbnails, Magic Design, Magic Write, Magic Switch,
+                background remover, basic video editing, logo and branding, social media designs for Instagram,
+                Facebook, LinkedIn and YouTube.
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">AI Skills</div>
+              <div class="skill-tags">
+                AI-based content creation, captions, blogs and ad copy, prompt writing for AI tools, text-to-image
+                design, automated design workflows and AI-driven creative solutions.
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">Technical Skills</div>
+              <div class="skill-tags">
+                HTML, CSS, JavaScript, WordPress basics, C++, CCC, basic web development and understanding of modern web
+                and UI.
+              </div>
+            </div>
+
+            <div class="skill-card">
+              <div class="skill-title">Soft Skills</div>
+              <div class="skill-tags">
+                Creativity and design sense, social media trend understanding, attention to detail,
+                time management and problem-solving.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience" class="reveal">
+      <p class="section-heading">Experience</p>
+      <h2 class="section-title">Projects & Practical Work</h2>
+
+      <div class="experience-section">
+        <h3 class="experience-title">Experience (Projects & Practical Work)</h3>
+        <ul class="experience-list">
+          <li>Designed over 50 social media posts using Canva and AI-based tools.</li>
+          <li>Created AI-generated graphics using Magic Design and Text-to-Image features.</li>
+          <li>Developed logos, posters, thumbnails, and presentations through Canva templates.</li>
+          <li>Utilized Magic Write for generating captions, blog snippets, and content ideas.</li>
+          <li>Edited images and basic videos using Canva AI tools such as Background Remover and Auto Enhance.</li>
+          <li>Produced brand-consistent designs using the Canva Brand Kit.</li>
+          <li>Managed the Nattexsols website, handling content updates, basic design improvements and visual assets created in Canva.</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <p class="section-heading">Projects and Practical Work</p>
+      <h2 class="section-title">What I have worked on</h2>
+      <p class="section-sub">
+        These samples represent the kind of work I have done: social media posts, logos, banners, AI-assisted visuals and
+        brand-focused designs using Canva and AI tools. Drive folders keep getting updated as I add more work.
+      </p>
+
+      <div class="projects-grid">
+        <!-- PROJECT 1 -->
+        <article class="project-card reveal"
+                 data-link="https://drive.google.com/drive/folders/1k5rxpmoHdcYWNSMi7CFcnTbAYRPoMP6N?usp=drive_link">
+          <div class="project-thumb">
+            <!-- path fixed -->
+            <img src="project1.jpg" alt="Social Media, Logo & Banner Pack">
+            <div class="project-overlay">Open full project ↗</div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Social Media, Logo & Banner Pack</h3>
+            <p class="project-desc">
+              A collection of social media creatives, story designs, logo concepts and banner designs for different
+              platforms. Focus on brand consistency, typography and clear visuals across Instagram, Facebook and YouTube.
+            </p>
+
+            <div class="project-tags">
+              <span>Canva</span>
+              <span>Branding</span>
+              <span>Social Media</span>
+            </div>
+
+            <div class="project-meta">
+              <span>Canva · Magic Design · Branding</span>
+              <div class="project-links">
+                <a href="https://drive.google.com/drive/folders/1k5rxpmoHdcYWNSMi7CFcnTbAYRPoMP6N?usp=drive_link" target="_blank">
+                  View more on Drive →
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 2 -->
+        <article class="project-card reveal"
+                 data-link="https://drive.google.com/drive/folders/1rdFVEkPEL8z46WMvTlIHE-WUo7yogETT?usp=drive_link">
+          <div class="project-thumb">
+            <!-- path fixed -->
+            <img src="project2.png" alt="AI Posters & Thumbnails">
+            <div class="project-overlay">Open full project ↗</div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">AI Posters & Thumbnails</h3>
+            <p class="project-desc">
+              Thumbnails, posters and visual content created using Text-to-Image, Magic Write and AI-assisted layouts.
+              Designed for YouTube, reels covers and social media promotions with clean, catchy visuals.
+            </p>
+
+            <div class="project-tags">
+              <span>AI</span>
+              <span>Posters</span>
+              <span>Thumbnails</span>
+            </div>
+
+            <div class="project-meta">
+              <span>Canva AI · Thumbnails · Posters</span>
+              <div class="project-links">
+                <a href="https://drive.google.com/drive/folders/1rdFVEkPEL8z46WMvTlIHE-WUo7yogETT?usp=drive_link" target="_blank">
+                  View more on Drive →
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJECT 3 -->
+        <article class="project-card reveal"
+                 data-link="https://drive.google.com/drive/folders/1V8psPvJXllj3QglY6V_olroEbdzuRmBB?usp=drive_link">
+          <div class="project-thumb">
+            <!-- path fixed -->
+            <img src="project3.png" alt="Brand Kit & Presentation">
+            <div class="project-overlay">Open full project ↗</div>
+          </div>
+          <div class="project-body">
+            <h3 class="project-title">Brand Kit, Visiting Cards & Presentation</h3>
+            <p class="project-desc">
+              Brand identity set including visiting cards, posters and presentation slides following the same colours,
+              fonts and layout system. Built using Canva Brand Kit with focus on professional and consistent look.
+            </p>
+
+            <div class="project-tags">
+              <span>Brand Kit</span>
+              <span>Print</span>
+              <span>Slides</span>
+            </div>
+
+            <div class="project-meta">
+              <span>Brand Kit · Print & Slides</span>
+              <div class="project-links">
+                <a href="https://drive.google.com/drive/folders/1V8psPvJXllj3QglY6V_olroEbdzuRmBB?usp=drive_link" target="_blank">
+                  View more on Drive →
+                </a>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="reveal">
+      <p class="section-heading">Contact</p>
+      <h2 class="section-title">Let’s work together</h2>
+      <p class="section-sub">
+        I am open to work-from-home roles, internships and project-based work related to Canva design,
+        AI-based content creation and basic web development. Feel free to reach out.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-panel">
+          <form onsubmit="event.preventDefault(); alert('This is a demo form. Please contact me via email or LinkedIn.');">
+            <div>
+              <label>
+                Name
+                <input type="text" placeholder="Enter your name" required />
+              </label>
+            </div>
+            <div>
+              <label>
+                Email
+                <input type="email" placeholder="Enter your email" required />
+              </label>
+            </div>
+            <div>
+              <label>
+                Message
+                <textarea placeholder="Write your message..." required></textarea>
+              </label>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+        </div>
+
+        <div class="contact-panel contact-info">
+          <p>
+            If you are looking for someone who understands both design and technology, I would be happy to collaborate.
+            I can help with social media content, thumbnails, brand kits and simple web pages.
+          </p>
+          <p>
+            You can connect with me through email or LinkedIn. I usually respond quickly to opportunities and project ideas.
+          </p>
+
+          <div class="contact-list">
+            <div><span>Email:</span> ankitrajvansh977@gmai.com</div>
+            <div><span>Phone:</span> +91-6396312309</div>
+            <div><span>LinkedIn:</span>
+              <a href="https://www.linkedin.com/in/ankit-kumar-5a9841230/" target="_blank">
+                https://www.linkedin.com/in/ankit-kumar-5a9841230/
+              </a>
+            </div>
+            <div><span>GitHub / Portfolio:</span> <a href="#" target="_blank">github.com/your-username</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="socials">
+        <a href="https://www.linkedin.com/in/ankit-kumar-5a9841230/" target="_blank">LinkedIn</a>
+        <a href="#" target="_blank">GitHub</a>
+        <a href="#home">Back to top</a>
+      </div>
+      <p>© <span id="year"></span> Ankit Kumar · All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
+      anchor.addEventListener("click", function (e) {
+        var targetId = this.getAttribute("href");
+        if (targetId.length > 1 && !targetId.startsWith("https")) {
+          e.preventDefault();
+          var target = document.querySelector(targetId);
+          if (target) {
+            window.scrollTo({
+              top: target.offsetTop - 70,
+              behavior: "smooth"
+            });
+          }
+        }
+      });
+    });
+
+    // mobile menu
+    var menuBtn = document.getElementById("menuBtn");
+    var navLinks = document.getElementById("navLinks");
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener("click", function () {
+        navLinks.classList.toggle("show");
+      });
+    }
+
+    // CARD CLICK -> open Drive page
+    document.querySelectorAll(".project-card").forEach(function(card) {
+      card.addEventListener("click", function(e) {
+        if (e.target.closest(".project-links a")) return;
+        var link = card.getAttribute("data-link");
+        if (link) {
+          window.open(link, "_blank");
+        }
+      });
+    });
+
+    // Scroll reveal
+    const revealElements = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("show");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
