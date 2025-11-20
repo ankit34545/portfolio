@@ -159,12 +159,14 @@
       color: var(--text-main);
     }
 
+    /* --------- GLOBAL LAYOUT SPACING (UPDATED) ---------- */
+
     main {
-      padding-bottom: 4.5rem;
+      padding-bottom: 3rem; /* pehle 4.5rem tha – extra gap kam kiya */
     }
 
     section {
-      padding: 4rem 0;
+      padding: 3rem 0 2.6rem; /* pehle 4rem 0 tha – top/bottom space kam */
     }
 
     .scene-3d {
@@ -174,11 +176,12 @@
 
     /* HERO */
     .hero {
-      min-height: 82vh;
+      /* pehle min-height: 82vh tha – isi se sabse zyada empty space aa raha tha  */
       display: grid;
       grid-template-columns: minmax(0, 2.1fr) minmax(0, 1.7fr);
-      gap: 2.6rem;
+      gap: 2.3rem;
       align-items: center;
+      padding-top: 2.4rem; /* thoda upar se spacing, lekin controlled */
     }
 
     .eyebrow {
@@ -203,7 +206,7 @@
     .hero-sub {
       font-size: 1rem;
       color: #dbeafe;
-      margin-bottom: 1.4rem;
+      margin-bottom: 1.1rem;
     }
 
     .hero-sub span {
@@ -215,14 +218,14 @@
       font-size: 0.95rem;
       color: var(--text-muted);
       max-width: 34rem;
-      margin-bottom: 1.8rem;
+      margin-bottom: 1.4rem;
     }
 
     .hero-actions {
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.3rem;
     }
 
     .btn {
@@ -462,14 +465,14 @@
       font-size: 0.9rem;
       color: var(--text-muted);
       max-width: 34rem;
-      margin-bottom: 2rem;
+      margin-bottom: 1.8rem; /* thoda kam kiya */
     }
 
     /* ABOUT */
     .about-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.7fr) minmax(0, 1.4fr);
-      gap: 2.2rem;
+      gap: 2rem; /* gap thoda kam */
       align-items: flex-start;
     }
 
@@ -499,9 +502,9 @@
     }
 
     .info-list {
-      margin-top: 1.3rem;
+      margin-top: 1.1rem;
       display: grid;
-      gap: 0.5rem;
+      gap: 0.45rem;
       font-size: 0.85rem;
       color: var(--text-muted);
     }
@@ -514,11 +517,11 @@
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-      gap: 1rem;
+      gap: 0.9rem;
     }
 
     .skill-card {
-      padding: 0.95rem 1rem;
+      padding: 0.9rem 1rem;
       border-radius: 1rem;
       border: 1px solid var(--border-soft);
       background:
@@ -561,7 +564,7 @@
       list-style: none;
       padding-left: 0;
       position: relative;
-      margin-top: 1.2rem;
+      margin-top: 1.1rem;
     }
 
     .experience-list::before {
@@ -578,7 +581,7 @@
     .experience-list li {
       position: relative;
       padding-left: 2.2rem;
-      margin-bottom: .9rem;
+      margin-bottom: .85rem;
       color: var(--text-muted);
       font-size: .88rem;
     }
@@ -599,7 +602,7 @@
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.7rem;
+      gap: 1.6rem;
     }
 
     .project-card {
@@ -676,10 +679,10 @@
     }
 
     .project-body {
-      padding: 1.05rem 1.1rem 1.2rem;
+      padding: 1.05rem 1.1rem 1.1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.5rem;
+      gap: 0.45rem;
       background: linear-gradient(to bottom, rgba(15, 23, 42, 0.98), rgba(15, 23, 42, 0.94));
     }
 
@@ -697,7 +700,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 0.4rem;
-      margin-top: 0.4rem;
+      margin-top: 0.3rem;
       font-size: 0.75rem;
     }
 
@@ -713,7 +716,7 @@
     }
 
     .project-meta {
-      margin-top: 0.5rem;
+      margin-top: 0.45rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -744,14 +747,14 @@
     .contact-grid {
       display: grid;
       grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.3fr);
-      gap: 2.3rem;
+      gap: 2.1rem;
     }
 
     .contact-panel {
       background: linear-gradient(140deg, rgba(15, 23, 42, 0.97), rgba(15, 23, 42, 0.9));
       border-radius: 1.4rem;
       border: 1px solid var(--border-soft);
-      padding: 1.6rem 1.6rem 1.7rem;
+      padding: 1.5rem 1.5rem 1.6rem;
       box-shadow: var(--shadow-strong);
       transform-style: preserve-3d;
       transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -765,7 +768,7 @@
 
     form {
       display: grid;
-      gap: 0.95rem;
+      gap: 0.9rem;
     }
 
     label {
@@ -809,9 +812,9 @@
     }
 
     .contact-list {
-      margin-top: 1.3rem;
+      margin-top: 1.2rem;
       display: grid;
-      gap: 0.5rem;
+      gap: 0.45rem;
       font-size: 0.85rem;
     }
 
@@ -823,7 +826,7 @@
     /* FOOTER */
     footer {
       border-top: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 1.2rem 0 1.6rem;
+      padding: 1rem 0 1.2rem; /* footer padding bhi thoda kam */
       font-size: 0.78rem;
       color: #6b7280;
       text-align: center;
@@ -865,10 +868,12 @@
       transition: opacity 0.45s ease, transform 0.45s ease;
     }
 
+    /* --------- RESPONSIVE FIXES (MOBILE + TABLET) ---------- */
+
     @media (max-width: 900px) {
       .hero {
         grid-template-columns: minmax(0, 1fr);
-        padding-top: 2.4rem;
+        padding-top: 1.8rem; /* pehle 2.4rem – mobile/tablet me aur tight */
       }
 
       .hero-card {
@@ -911,7 +916,16 @@
       }
 
       section {
-        padding: 3.1rem 0;
+        padding: 2.3rem 0 2.1rem; /* mobile pe aur kam gap */
+      }
+
+      .hero {
+        padding-top: 1.5rem;
+        text-align: left;
+      }
+
+      .hero-meta {
+        gap: 1.3rem;
       }
     }
   </style>
@@ -1112,7 +1126,6 @@
         <article class="project-card reveal"
                  data-link="https://drive.google.com/drive/folders/1k5rxpmoHdcYWNSMi7CFcnTbAYRPoMP6N?usp=drive_link">
           <div class="project-thumb">
-            <!-- path fixed -->
             <img src="project1.jpg" alt="Social Media, Logo & Banner Pack">
             <div class="project-overlay">Open full project ↗</div>
           </div>
@@ -1144,7 +1157,6 @@
         <article class="project-card reveal"
                  data-link="https://drive.google.com/drive/folders/1rdFVEkPEL8z46WMvTlIHE-WUo7yogETT?usp=drive_link">
           <div class="project-thumb">
-            <!-- path fixed -->
             <img src="project2.png" alt="AI Posters & Thumbnails">
             <div class="project-overlay">Open full project ↗</div>
           </div>
@@ -1176,7 +1188,6 @@
         <article class="project-card reveal"
                  data-link="https://drive.google.com/drive/folders/1V8psPvJXllj3QglY6V_olroEbdzuRmBB?usp=drive_link">
           <div class="project-thumb">
-            <!-- path fixed -->
             <img src="project3.png" alt="Brand Kit & Presentation">
             <div class="project-overlay">Open full project ↗</div>
           </div>
